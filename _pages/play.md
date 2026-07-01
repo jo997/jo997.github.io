@@ -43,8 +43,12 @@ description: "Act or Hold, a small game about deciding when a robot should trust
           </div>
 
           <div class="stage-side">
-            <div class="game-bot is-scan" id="g-bot" aria-hidden="true">
-              <div class="gate-bot"><span class="gate-eye"></span><span class="gate-eye"></span></div>
+            <div class="game-bot scan idle" id="g-bot" aria-hidden="true">
+              <div class="as-stage">
+                <div class="gate-bot"><span class="gate-eye"></span><span class="gate-eye"></span></div>
+                <div class="as-arm"><span class="as-hand"></span></div>
+                <div class="as-target"></div>
+              </div>
             </div>
             <div class="conf-block">
               <div class="gate-track"><div class="gate-fill" id="g-conffill" style="width:0%"></div><div class="gate-threshold" style="left:64%"><span>act line</span></div></div>

@@ -26,10 +26,10 @@
   // timer, fewer safety margins. Impossible drains trust every round and gives a
   // useless signal, so a run always ends: it cannot be won.
   var DIFF = {
-    calm: { label: 'Calm', tag: 'a gentle warm-up', noiseBase: 0.10, noiseSpan: 0.54, ramp: 0.08, miscal: 0.10, miscalRamp: 0.15, timer: 8.5, timerMin: 5.5, timerRamp: 0.12, lives: 4, decay: 0 },
-    clinical: { label: 'Clinical', tag: 'the intended challenge', noiseBase: 0.18, noiseSpan: 0.64, ramp: 0.18, miscal: 0.30, miscalRamp: 0.40, timer: 6.0, timerMin: 3.6, timerRamp: 0.22, lives: 3, decay: 0 },
-    chaos: { label: 'Chaos', tag: 'confidence lies often', noiseBase: 0.30, noiseSpan: 0.66, ramp: 0.22, miscal: 0.55, miscalRamp: 0.40, timer: 4.2, timerMin: 2.4, timerRamp: 0.26, lives: 2, decay: 0 },
-    impossible: { label: 'Impossible', tag: 'you will not survive', noiseBase: 0.50, noiseSpan: 0.49, ramp: 0.00, miscal: 1.00, miscalRamp: 0.00, timer: 2.2, timerMin: 1.5, timerRamp: 0.07, lives: 1, decay: 16, deadSignal: true }
+    calm: { label: 'Calm', tag: 'a gentle warm-up', noiseBase: 0.06, noiseSpan: 0.40, ramp: 0.05, noiseScale: 0.85, relBoost: 0.14, ambProb: 0.16, miscal: 0.05, miscalRamp: 0.10, timer: 9.5, timerMin: 6.5, timerRamp: 0.06, lives: 5, decay: 0 },
+    clinical: { label: 'Clinical', tag: 'the intended challenge', noiseBase: 0.16, noiseSpan: 0.62, ramp: 0.18, noiseScale: 1.05, relBoost: 0.03, ambProb: 0.5, miscal: 0.28, miscalRamp: 0.40, timer: 6.0, timerMin: 3.6, timerRamp: 0.22, lives: 3, decay: 0 },
+    chaos: { label: 'Chaos', tag: 'confidence lies often', noiseBase: 0.30, noiseSpan: 0.66, ramp: 0.22, noiseScale: 1.2, relBoost: 0.0, ambProb: 0.6, miscal: 0.55, miscalRamp: 0.40, timer: 4.2, timerMin: 2.4, timerRamp: 0.26, lives: 2, decay: 0 },
+    impossible: { label: 'Impossible', tag: 'you will not survive', noiseBase: 0.50, noiseSpan: 0.49, ramp: 0.00, noiseScale: 1.4, relBoost: 0.0, ambProb: 0.6, miscal: 1.00, miscalRamp: 0.00, timer: 2.2, timerMin: 1.5, timerRamp: 0.07, lives: 1, decay: 16, deadSignal: true }
   };
   var DIFF_ORDER = ['calm', 'clinical', 'chaos', 'impossible'];
 
@@ -116,7 +116,7 @@
     var C = centers();
     var teal = cssVar('--academic-accent', TEAL_FALLBACK);
     var violet = cssVar('--academic-accent-2', VIOLET_FALLBACK);
-    var spread = 12 + s.noise * Math.min(w, h) * 0.44;
+    var spread = (10 + s.noise * Math.min(w, h) * 0.52) * (S.diff.noiseScale || 1);
 
     for (var i = 0; i < 60; i++) {
       var toAlt = s.ambiguous && (i % 5 === 0);
@@ -153,8 +153,8 @@
   function makeScenario(round) {
     var D = S.diff;
     var ramp = Math.min(1, round / 16);
-    var noise = clamp(D.noiseBase + Math.random() * D.noiseSpan + ramp * D.ramp, 0.1, 0.99);
-    var reliability = D.deadSignal ? 0.5 : clamp(1 - noise * 0.92 - Math.random() * 0.08 + 0.04, 0.02, 0.98);
+    var noise = clamp(D.noiseBase + Math.random() * D.noiseSpan + ramp * D.ramp, 0.06, 0.99);
+    var reliability = D.deadSignal ? 0.5 : clamp(1 - noise * 0.92 - Math.random() * 0.08 + 0.04 + (D.relBoost || 0), 0.02, 0.99);
     var correct = Math.random() < reliability;
     var conf;
     var miscalP = Math.min(1, D.miscal + ramp * D.miscalRamp);
@@ -164,12 +164,13 @@
       conf = (1 - noise) * 100 + gauss() * 7;
     }
     conf = Math.round(clamp(conf, 2, 99));
-    var ambiguous = noise > 0.5 && Math.random() < 0.5;
+    var ambiguous = noise > 0.5 && Math.random() < (D.ambProb || 0.5);
     return { noise: noise, correct: correct, conf: conf, ambiguous: ambiguous, label: pickLabel(noise, ambiguous) };
   }
 
   // ---- HUD ----
-  function setBot(state) { els.bot.className = 'game-bot is-' + state; }
+  // posture: scan | reach | held   mood: idle | good | bad | warn
+  function setScene(posture, mood) { els.bot.className = 'game-bot ' + posture + ' ' + mood; }
   function syncHUD() {
     els.score.textContent = S.score;
     els.round.textContent = S.round;
@@ -197,7 +198,7 @@
     els.spreadTag.textContent = sp > 70 ? 'high' : (sp > 45 ? 'elevated' : 'low');
     els.conffill.style.width = S.cur.conf + '%';
     els.conf.textContent = S.cur.conf + '%';
-    setBot('scan');
+    setScene('scan', 'idle');
     els.result.setAttribute('data-kind', 'idle');
     els.result.innerHTML = '<span class="res-note">' + IDLE_TEXT + '</span>';
 
@@ -218,24 +219,24 @@
     root.setAttribute('data-state', 'reveal');
     enableButtons(false);
 
-    var s = S.cur, delta = 0, outcome, note, bot;
+    var s = S.cur, delta = 0, outcome, note, posture = 'scan', mood = 'idle';
     var good = (action === 'act' && s.correct) || (action === 'hold' && !s.correct);
 
     if (action === 'act') {
       if (s.correct) {
-        delta = Math.round(100 * mult()); S.assists++; S.trust += 8; outcome = 'Assist delivered'; bot = 'act';
-        note = 'Confident and correct. The device moved with the user.';
+        delta = Math.round(100 * mult()); S.assists++; S.trust += 8; outcome = 'Assist delivered'; posture = 'reach'; mood = 'good';
+        note = 'Confident and correct. The robot reached out and moved with the user.';
       } else {
-        delta = -150; S.incidents++; S.trust -= 30; outcome = 'Unsafe assist'; bot = 'alarm';
-        note = 'The robot acted on an unreliable estimate. This is the failure calibrated confidence is meant to prevent.';
+        delta = -150; S.incidents++; S.trust -= 30; outcome = 'Unsafe assist'; posture = 'reach'; mood = 'bad';
+        note = 'The robot reached on an unreliable estimate. This is the failure calibrated confidence is meant to prevent.';
       }
     } else {
       if (s.correct) {
-        delta = -20; S.missed++; S.trust -= 3; outcome = timedOut ? 'Timed out, held' : 'Missed assist'; bot = 'hold';
-        note = 'The prediction was actually right, so holding was overcautious here.';
+        delta = -20; S.missed++; S.trust -= 3; outcome = timedOut ? 'Timed out, held' : 'Missed assist'; posture = 'held'; mood = 'warn';
+        note = 'The prediction was actually right, so holding back was overcautious here.';
       } else {
-        delta = Math.round(60 * mult()); S.avoided++; S.trust += 5; outcome = timedOut ? 'Timed out, incident avoided' : 'Incident avoided'; bot = 'act';
-        note = 'Good hold. The estimate was wrong and acting would have caused an incident.';
+        delta = Math.round(60 * mult()); S.avoided++; S.trust += 5; outcome = timedOut ? 'Timed out, incident avoided' : 'Incident avoided'; posture = 'held'; mood = 'good';
+        note = 'Good hold. The robot stayed still and avoided acting on a wrong estimate.';
       }
     }
 
@@ -244,7 +245,7 @@
     S.score = Math.max(0, S.score + delta);
     S.trust = clamp(S.trust, 0, 100);
     syncHUD();
-    setBot(bot);
+    setScene(posture, mood);
     drawScene(true);
 
     els.result.setAttribute('data-kind', good ? 'good' : 'bad');
@@ -262,7 +263,7 @@
   function gameOver() {
     S.phase = 'over';
     root.setAttribute('data-state', 'over');
-    setBot('alarm');
+    setScene('held', 'bad');
     if (S.score > S.best) {
       S.best = S.score;
       localStorage.setItem(bestKey(), S.best);
@@ -308,7 +309,7 @@
   function showIntro() {
     S.phase = 'intro';
     root.setAttribute('data-state', 'intro');
-    setBot('scan');
+    setScene('scan', 'idle');
     enableButtons(false);
     els.result.setAttribute('data-kind', 'idle');
     els.result.innerHTML = '<span class="res-note">' + IDLE_TEXT + '</span>';

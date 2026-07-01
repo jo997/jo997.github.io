@@ -1350,37 +1350,119 @@ article.post .post-header {
 
 .game-bot {
   --gate-color: #38bdf8;
-  display: grid;
-  place-items: center;
-  padding: 0.4rem 0;
 }
 
-.game-bot .gate-bot {
-  width: 110px;
-  height: 88px;
-}
-
-.game-bot.is-act {
-  --gate-color: var(--academic-accent);
-}
-.game-bot.is-hold {
-  --gate-color: #d97706;
-}
-.game-bot.is-scan {
+/* mood sets the colour */
+.game-bot.idle {
   --gate-color: #38bdf8;
 }
-.game-bot.is-alarm {
+.game-bot.good {
+  --gate-color: var(--academic-accent);
+}
+.game-bot.warn {
+  --gate-color: #d97706;
+}
+.game-bot.bad {
   --gate-color: #ef4444;
 }
 
-.game-bot.is-hold .gate-eye {
+/* the assist scene: robot on the left, an arm, and the target it reaches for */
+.as-stage {
+  position: relative;
+  min-height: 108px;
+}
+
+.as-stage .gate-bot {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 90px;
+  height: 72px;
+  transform: translateY(-50%);
+}
+
+.as-arm {
+  position: absolute;
+  top: 50%;
+  left: 98px;
+  width: 20px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--gate-color);
+  transform: translateY(-50%);
+  transition:
+    width 0.45s cubic-bezier(0.3, 0.85, 0.35, 1),
+    background 0.3s ease;
+}
+
+.as-hand {
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  width: 13px;
+  height: 17px;
+  border-radius: 3px;
+  background: var(--gate-color);
+  transform: translateY(-50%);
+}
+
+.as-target {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 27px;
+  height: 33px;
+  border: 2px solid color-mix(in srgb, var(--gate-color) 55%, transparent);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--gate-color) 12%, transparent);
+  opacity: 0.5;
+  transform: translateY(-50%);
+  transition:
+    opacity 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.game-bot.reach .as-arm {
+  width: calc(100% - 134px);
+}
+
+.game-bot.held .as-arm {
+  width: 11px;
+}
+
+.game-bot.reach .as-target {
+  opacity: 1;
+  background: color-mix(in srgb, var(--gate-color) 26%, transparent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--gate-color) 16%, transparent);
+}
+
+.game-bot.held .as-target {
+  opacity: 0.4;
+}
+
+.game-bot.held .gate-eye {
   align-self: center;
   height: 3px;
   border-radius: 3px;
 }
 
-.game-bot.is-alarm .gate-bot {
+.game-bot.bad .gate-bot {
   animation: bot-shake 0.4s ease;
+}
+
+.game-bot.reach.good .as-target {
+  animation: assist-pulse 0.7s ease;
+}
+
+@keyframes assist-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--gate-color) 45%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 16px color-mix(in srgb, var(--gate-color) 0%, transparent);
+  }
 }
 
 @keyframes bot-shake {
@@ -1794,12 +1876,15 @@ article.post .post-header {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .game-bot.is-alarm .gate-bot {
+  .game-bot.bad .gate-bot,
+  .game-bot.reach.good .as-target {
     animation: none;
   }
   .game-btn,
   .trust-bar i,
-  .spread-meter .meter i {
+  .spread-meter .meter i,
+  .as-arm,
+  .as-target {
     transition: none;
   }
 }
