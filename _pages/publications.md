@@ -16,7 +16,7 @@ nav_order: 2
     <div class="signal-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="academic-kicker">Publications</div>
     <h1>Research papers</h1>
-    <p class="academic-lead">Work on calibrated confidence, human intention prediction, interpretable uncertainty, risk-aware state estimation, and safe robot autonomy. Every link points to the canonical arXiv record.</p>
+    <p class="academic-lead">Work on calibrated confidence, human intention prediction, interpretable uncertainty, risk-aware state estimation, and safe robot autonomy. Links go to the arXiv version of each paper.</p>
   </section>
 </div>
 

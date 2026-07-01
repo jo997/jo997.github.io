@@ -7,6 +7,7 @@ nav_order: 3
 description: Academic experience, education, teaching, service, and technical background.
 ---
 
+<script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.classList.add('reveal-on');}</script>
 <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
 
 <div class="academic-page">
@@ -63,12 +64,4 @@ description: Academic experience, education, teaching, service, and technical ba
   </div></section>
 </div>
 
-<script>
-  document.querySelectorAll('[data-mail-user]').forEach(function (a) {
-    var addr = a.getAttribute('data-mail-user') + '@' + a.getAttribute('data-mail-domain');
-    a.setAttribute('href', 'mailto:' + addr);
-    if (a.hasAttribute('data-mail-text')) {
-      a.textContent = addr;
-    }
-  });
-</script>
+<script defer src="{{ '/assets/js/academic.js' | relative_url }}"></script>

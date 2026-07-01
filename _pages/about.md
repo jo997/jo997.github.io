@@ -12,6 +12,7 @@ latest_posts:
   enabled: false
 ---
 
+<script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.classList.add('reveal-on');}</script>
 <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
 
 <div class="academic-page">
@@ -19,7 +20,7 @@ latest_posts:
     <div class="signal-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="academic-kicker">Reliable AI · Assistive Robotics · Human-Centered Autonomy</div>
     <h1>Building robots that know when to act, and when to wait.</h1>
-    <p class="academic-lead">I am Johannes Gaus, a Ph.D. researcher at the University of Tübingen. I study how uncertainty, calibration, and interpretable risk estimates can make learning-enabled robots safer and genuinely useful around people, especially the assistive devices that help someone eat, drink, and move with dignity.</p>
+    <p class="academic-lead">I am Johannes Gaus, a Ph.D. researcher at the University of Tübingen. I study how uncertainty, calibration, and interpretable risk estimates can make learning-enabled robots safer and more useful around people, with a focus on assistive devices that help someone eat, drink, and move on their own.</p>
     <div class="academic-actions">
       <a class="academic-button primary" href="{{ '/research/' | relative_url }}">Explore my research</a>
       <a class="academic-button" href="{{ '/publications/' | relative_url }}">Read publications</a>
@@ -30,7 +31,7 @@ latest_posts:
   <div class="signal-band" aria-hidden="true"><div class="signal-band-track"><span>Uncertainty Quantification</span><span>Assistive Robotics</span><span>Calibrated Confidence</span><span>Human Intention</span><span>Safe Autonomy</span><span>Intention Prediction</span><span>Robot Perception</span><span>Uncertainty Quantification</span><span>Assistive Robotics</span><span>Calibrated Confidence</span><span>Human Intention</span><span>Safe Autonomy</span><span>Intention Prediction</span><span>Robot Perception</span></div></div>
 
   <section class="academic-section gate-section">
-    <div class="academic-section-heading"><h2>The one question I keep asking</h2><p>Try it. A robot should only assist once its calibrated confidence clears a safety threshold. Move the slider.</p></div>
+    <div class="academic-section-heading"><h2>The core question</h2><p>A robot should only assist once its calibrated confidence clears a safety threshold. Move the slider to see the decision flip.</p></div>
     <div class="confidence-gate" data-confidence-gate data-threshold="72">
       <div class="gate-scene" aria-hidden="true">
         <div class="gate-bot"><span class="gate-eye"></span><span class="gate-eye"></span></div>
@@ -60,7 +61,7 @@ latest_posts:
     </div>
     <div class="academic-grid">
       <article class="academic-card"><span class="number">01 / RELIABILITY</span><h3>Calibrated confidence</h3><p>Turning model confidence into an interpretable reliability estimate that can safely trigger or withhold robot assistance.</p></article>
-      <article class="academic-card"><span class="number">02 / INTENTION</span><h3>Human intention prediction</h3><p>Reading what a person is trying to do from multimodal signals, so an assistive device can move with them rather than against them.</p></article>
+      <article class="academic-card"><span class="number">02 / INTENTION</span><h3>Human intention prediction</h3><p>Inferring what a person is trying to do from multimodal signals, so an assistive device supports the intended movement instead of disrupting it.</p></article>
       <article class="academic-card"><span class="number">03 / EXPLAINABILITY</span><h3>Uncertainty attribution</h3><p>Explaining whether sensor noise, geometry, initialization, or missing observations caused a perception system to become uncertain.</p></article>
       <article class="academic-card"><span class="number">04 / AUTONOMY</span><h3>Risk-aware control</h3><p>Combining learning-based perception with transparent control and fallback policies for robust, safe embodied systems.</p></article>
     </div>
@@ -71,7 +72,7 @@ latest_posts:
       <h2>About me</h2>
       <p>Computer science, grounded in human movement and real robotic systems.</p>
     </div>
-    <p>I work in the Neuromechanics and Rehabilitation Robotics group at the Hertie Institute for Clinical Brain Research and the Center for Integrative Neuroscience. My current research investigates reliable human-intention prediction for assistive devices, including the <strong>iAssistADL</strong> effort that helps people with neurodegenerative movement disorders eat and drink on their own. It all comes back to one practical question. When is a prediction trustworthy enough to act on?</p>
+    <p>I work in the Neuromechanics and Rehabilitation Robotics group at the Hertie Institute for Clinical Brain Research and the Center for Integrative Neuroscience. My current research investigates reliable human-intention prediction for assistive devices, including the <strong>iAssistADL</strong> project that helps people with neurodegenerative movement disorders eat and drink on their own. The question running through it is when a prediction is reliable enough to act on.</p>
     <p>Previously I completed an M.Sc. in Computer Science at the Karlsruhe Institute of Technology, specializing in software engineering and machine learning. During my master's research at the German Aerospace Center (DLR), I developed methods that explain uncertainty in point-cloud registration. I hold a B.Sc. in Computer Science from the University of Tübingen with a minor in Psychology.</p>
     <div class="academic-actions">
       <a class="academic-button" href="{{ '/cv/' | relative_url }}">View academic CV</a>
@@ -81,55 +82,4 @@ latest_posts:
   </section>
 </div>
 
-<script>
-  (function () {
-    var gate = document.querySelector('[data-confidence-gate]');
-    if (gate) {
-      var slider = gate.querySelector('.gate-slider');
-      var fill = gate.querySelector('.gate-fill');
-      var conf = gate.querySelector('.gate-conf');
-      var verdict = gate.querySelector('.gate-verdict');
-      var vlabel = verdict.querySelector('strong');
-      var vsub = verdict.querySelector('span');
-      var thr = parseInt(gate.getAttribute('data-threshold'), 10);
-      var update = function () {
-        var v = parseInt(slider.value, 10);
-        fill.style.width = v + '%';
-        conf.textContent = v + '%';
-        var act = v >= thr;
-        gate.classList.toggle('is-act', act);
-        gate.classList.toggle('is-hold', !act);
-        vlabel.textContent = act ? 'ACT' : 'HOLD';
-        vsub.textContent = act ? 'assist the person now' : 'wait for a human or fallback';
-      };
-      slider.addEventListener('input', update);
-      update();
-
-      var bot = gate.querySelector('.gate-bot');
-      var eyes = gate.querySelectorAll('.gate-eye');
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (bot && eyes.length && !reduce) {
-        gate.addEventListener('pointermove', function (e) {
-          var r = bot.getBoundingClientRect();
-          var dx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / 140));
-          var dy = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / 140));
-          for (var i = 0; i < eyes.length; i++) {
-            eyes[i].style.transform = 'translate(' + (dx * 3).toFixed(1) + 'px, ' + (dy * 2.5).toFixed(1) + 'px)';
-          }
-        });
-        gate.addEventListener('pointerleave', function () {
-          for (var i = 0; i < eyes.length; i++) {
-            eyes[i].style.transform = '';
-          }
-        });
-      }
-    }
-    document.querySelectorAll('[data-mail-user]').forEach(function (a) {
-      var addr = a.getAttribute('data-mail-user') + '@' + a.getAttribute('data-mail-domain');
-      a.setAttribute('href', 'mailto:' + addr);
-      if (a.hasAttribute('data-mail-text')) {
-        a.textContent = addr;
-      }
-    });
-  })();
-</script>
+<script defer src="{{ '/assets/js/academic.js' | relative_url }}"></script>
