@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://jo997.github.io/jgaus.github.io/sitemap.xml
+Sitemap: https://jo997.github.io/sitemap.xml
