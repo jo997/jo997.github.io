@@ -9,6 +9,17 @@ nav_order: 2
 
 <!-- _pages/publications.md -->
 
+<link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+
+<div class="academic-page">
+  <section class="academic-hero">
+    <div class="signal-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="academic-kicker">Publications</div>
+    <h1>Research papers</h1>
+    <p class="academic-lead">Work on calibrated confidence, interpretable uncertainty, risk-aware state estimation, and safe robot autonomy. Paper links point to their canonical arXiv records.</p>
+  </section>
+</div>
+
 <!-- Bibsearch Feature -->
 
 {% include bib_search.liquid %}
