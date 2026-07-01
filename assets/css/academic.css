@@ -426,10 +426,68 @@ article.post .post-header {
 }
 
 .flow-node {
+  position: relative;
   padding: 1rem;
   border: 1px solid var(--academic-line);
   border-radius: 0.8rem;
   background: var(--global-bg-color);
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+  animation: flow-active 3.6s ease-in-out infinite;
+}
+
+.research-flow .flow-node:nth-child(3) {
+  animation-delay: 1.2s;
+}
+.research-flow .flow-node:nth-child(5) {
+  animation-delay: 2.4s;
+}
+
+.flow-node::after {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--academic-accent);
+  content: "";
+  animation: flow-blink 3.6s ease-in-out infinite;
+  animation-delay: inherit;
+}
+
+.flow-node:hover {
+  border-color: color-mix(in srgb, var(--academic-accent) 55%, transparent);
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--academic-blue) 12%, transparent);
+  transform: translateY(-4px);
+}
+
+@keyframes flow-active {
+  0%,
+  40%,
+  100% {
+    border-color: var(--academic-line);
+  }
+  12%,
+  26% {
+    border-color: color-mix(in srgb, var(--academic-accent) 55%, transparent);
+  }
+}
+
+@keyframes flow-blink {
+  0%,
+  40%,
+  100% {
+    opacity: 0.35;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--academic-accent) 30%, transparent);
+  }
+  12%,
+  26% {
+    opacity: 1;
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--academic-accent) 0%, transparent);
+  }
 }
 
 .flow-node small,
@@ -448,6 +506,18 @@ article.post .post-header {
 .flow-arrow {
   color: var(--academic-accent);
   font-size: 1.35rem;
+  animation: flow-nudge 1.8s ease-in-out infinite;
+}
+
+.research-flow .flow-arrow:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes flow-nudge {
+  50% {
+    opacity: 0.55;
+    transform: translateX(5px);
+  }
 }
 
 .cv-summary {
@@ -749,7 +819,9 @@ article.post .post-header {
   height: 12px;
   border-radius: 50%;
   background: var(--gate-color);
-  transition: background 300ms ease;
+  transition:
+    background 300ms ease,
+    transform 120ms ease;
 }
 
 .confidence-gate.is-hold .gate-eye {
@@ -966,7 +1038,10 @@ article.post .post-header {
   .signal-band-track,
   .uq-dot,
   .gate-bot::after,
-  .gate-signal span {
+  .gate-signal span,
+  .flow-node,
+  .flow-node::after,
+  .flow-arrow {
     animation: none;
   }
   .academic-card,
@@ -974,7 +1049,8 @@ article.post .post-header {
   .academic-button,
   .uq-node,
   .gate-bot,
-  .gate-fill {
+  .gate-fill,
+  .flow-node {
     transition: none;
   }
   .gate-signal span {

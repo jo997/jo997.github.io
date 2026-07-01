@@ -45,6 +45,25 @@
       };
       slider.addEventListener('input', update);
       update();
+
+      var bot = gate.querySelector('.gate-bot');
+      var eyes = gate.querySelectorAll('.gate-eye');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (bot && eyes.length && !reduce) {
+        gate.addEventListener('pointermove', function (e) {
+          var r = bot.getBoundingClientRect();
+          var dx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / 140));
+          var dy = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / 140));
+          for (var i = 0; i < eyes.length; i++) {
+            eyes[i].style.transform = 'translate(' + (dx * 3).toFixed(1) + 'px, ' + (dy * 2.5).toFixed(1) + 'px)';
+          }
+        });
+        gate.addEventListener('pointerleave', function () {
+          for (var i = 0; i < eyes.length; i++) {
+            eyes[i].style.transform = '';
+          }
+        });
+      }
     }
     document.querySelectorAll('[data-mail-user]').forEach(function (a) {
       var addr = a.getAttribute('data-mail-user') + '@' + a.getAttribute('data-mail-domain');
