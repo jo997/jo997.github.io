@@ -1,14 +1,45 @@
 .academic-page {
   --academic-ink: var(--global-text-color);
   --academic-muted: var(--global-text-color-light);
-  --academic-accent: #0f766e;
+  --academic-accent: #0d9488;
+  --academic-accent-2: #6d5efc;
   --academic-blue: #1e3a5f;
-  --academic-surface: color-mix(in srgb, var(--global-bg-color) 92%, #0f766e 8%);
+  --academic-glow: color-mix(in srgb, var(--academic-accent) 45%, var(--academic-accent-2));
+  --academic-surface: color-mix(in srgb, var(--global-bg-color) 90%, var(--academic-accent) 10%);
+  --academic-card-bg: var(--global-bg-color);
   --academic-line: color-mix(in srgb, var(--global-text-color) 14%, transparent);
+}
+
+html[data-theme="dark"] .academic-page {
+  --academic-accent: #2dd4bf;
+  --academic-accent-2: #a78bfa;
+  --academic-blue: #38bdf8;
+  --academic-surface: color-mix(in srgb, var(--global-bg-color) 80%, var(--academic-accent) 20%);
+  --academic-card-bg: color-mix(in srgb, var(--global-bg-color) 86%, #7dd3fc 14%);
+  --academic-line: color-mix(in srgb, var(--global-text-color) 22%, transparent);
 }
 
 article.post .post-header {
   display: none;
+}
+
+/* On-scroll reveal. Only active once JS adds .reveal-on to <html>, so content
+   stays visible with JS disabled or reduced motion requested. */
+.reveal-on .academic-section,
+.reveal-on .research-flow,
+.reveal-on .signal-band,
+.reveal-on .academic-facts,
+.reveal-on .cv-summary {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal-on .is-revealed {
+  opacity: 1;
+  transform: none;
 }
 
 .academic-page::selection {
@@ -39,6 +70,28 @@ article.post .post-header {
   background-size: 42px 42px;
   content: "";
   mask-image: linear-gradient(90deg, transparent 25%, black 100%);
+}
+
+.academic-hero::after {
+  position: absolute;
+  z-index: -1;
+  top: -35%;
+  left: -12%;
+  width: 62%;
+  height: 170%;
+  background:
+    radial-gradient(circle at 30% 32%, color-mix(in srgb, var(--academic-accent-2) 45%, transparent), transparent 60%),
+    radial-gradient(circle at 68% 62%, color-mix(in srgb, var(--academic-accent) 48%, transparent), transparent 62%);
+  filter: blur(64px);
+  opacity: 0.6;
+  content: "";
+  animation: aurora-drift 15s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+  to {
+    transform: translate(14%, 9%) scale(1.18);
+  }
 }
 
 .academic-hero > :not(.signal-orbit) {
@@ -181,10 +234,11 @@ article.post .post-header {
 
 .academic-button.primary,
 .academic-button:hover {
-  background: var(--academic-accent);
+  border-color: transparent;
+  background: linear-gradient(120deg, var(--academic-accent), var(--academic-accent-2));
   color: white !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px color-mix(in srgb, var(--academic-accent) 24%, transparent);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--academic-glow) 30%, transparent);
 }
 
 .academic-button:hover::after {
@@ -260,7 +314,7 @@ article.post .post-header {
   padding: 1.35rem;
   border: 1px solid var(--academic-line);
   border-radius: 1rem;
-  background: var(--global-bg-color);
+  background: var(--academic-card-bg);
   box-shadow: 0 12px 35px color-mix(in srgb, var(--global-text-color) 6%, transparent);
   transition:
     transform 220ms ease,
@@ -274,7 +328,7 @@ article.post .post-header {
   right: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--academic-accent), #2dd4bf, transparent);
+  background: linear-gradient(90deg, var(--academic-accent), var(--academic-accent-2), transparent);
   content: "";
 }
 
@@ -430,7 +484,7 @@ article.post .post-header {
   padding: 1rem;
   border: 1px solid var(--academic-line);
   border-radius: 0.8rem;
-  background: var(--global-bg-color);
+  background: var(--academic-card-bg);
   transition:
     transform 200ms ease,
     border-color 200ms ease,
@@ -533,6 +587,10 @@ article.post .post-header {
   background: var(--academic-surface);
   border-radius: 0 0 0.7rem 0.7rem;
   transition: transform 180ms ease;
+}
+
+.cv-summary div:nth-child(even) {
+  border-top-color: var(--academic-accent-2);
 }
 
 .cv-summary div:hover {
@@ -641,7 +699,7 @@ article.post .post-header {
   padding: 1.25rem 1.25rem 1.25rem 1.5rem;
   border: 1px solid var(--academic-line);
   border-radius: 1rem;
-  background: var(--global-bg-color);
+  background: var(--academic-card-bg);
   transition:
     transform 200ms ease,
     border-color 200ms ease;
@@ -720,7 +778,7 @@ article.post .post-header {
   padding: 0.9rem;
   border: 1px solid var(--academic-line);
   border-radius: 0.85rem;
-  background: var(--global-bg-color);
+  background: var(--academic-card-bg);
 }
 
 .applied-stat strong {
@@ -936,7 +994,7 @@ article.post .post-header {
   padding: 0.8rem 1rem;
   border: 1px solid var(--academic-line);
   border-radius: 0.85rem;
-  background: var(--global-bg-color);
+  background: var(--academic-card-bg);
 }
 
 .gate-conf-box strong {
@@ -965,6 +1023,43 @@ article.post .post-header {
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 0.02em;
+}
+
+/* 404 page: a waiting robot in HOLD, reusing the gate robot visual. */
+.notfound-hero {
+  text-align: center;
+}
+
+.notfound-hero .academic-lead {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.notfound-hero .academic-actions {
+  justify-content: center;
+}
+
+.lost-bot {
+  --gate-color: #d97706;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.9rem;
+}
+
+.lost-bot .gate-bot {
+  width: 104px;
+  height: 82px;
+}
+
+.lost-bot .gate-eye {
+  width: 14px;
+  height: 14px;
+}
+
+.lost-bot.is-hold .gate-eye {
+  align-self: center;
+  height: 3px;
+  border-radius: 3px;
 }
 
 @media (max-width: 980px) {
@@ -1036,6 +1131,7 @@ article.post .post-header {
   .signal-orbit::before,
   .signal-orbit span,
   .signal-band-track,
+  .academic-hero::after,
   .uq-dot,
   .gate-bot::after,
   .gate-signal span,
