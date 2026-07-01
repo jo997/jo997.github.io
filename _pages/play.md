@@ -25,6 +25,7 @@ description: "Act or Hold, a small game about deciding when a robot should trust
         <div class="hud-stat"><span>Round</span><strong id="g-round">0</strong></div>
         <div class="hud-stat"><span>Streak</span><strong id="g-streak">0</strong></div>
         <div class="hud-stat"><span>Best</span><strong id="g-best">0</strong></div>
+        <div class="hud-stat"><span>Level</span><strong id="g-diffname" class="hud-level">Clinical</strong></div>
         <div class="hud-trust"><span>Trust</span><div class="trust-bar"><i id="g-trust" style="width:100%"></i></div></div>
         <div class="hud-lives" id="g-lives" aria-label="Safety margin"></div>
       </div>
@@ -53,8 +54,8 @@ description: "Act or Hold, a small game about deciding when a robot should trust
         </div>
 
         <div class="game-actions">
-          <button class="game-btn hold" id="g-hold" disabled><b>HOLD</b><kbd>H</kbd></button>
-          <button class="game-btn act" id="g-act" disabled><b>ACT</b><kbd>A</kbd></button>
+          <button type="button" class="game-btn hold" id="g-hold" disabled><span class="btn-label">HOLD</span><span class="btn-key">press H</span></button>
+          <button type="button" class="game-btn act" id="g-act" disabled><span class="btn-label">ACT</span><span class="btn-key">press A</span></button>
         </div>
 
         <div class="game-result" id="g-result" data-kind="idle" aria-live="polite"><span class="res-note">Read the sensor spread and the reported confidence, then choose.</span></div>
@@ -67,7 +68,7 @@ description: "Act or Hold, a small game about deciding when a robot should trust
   </section>
 
   <section class="academic-section">
-    <div class="academic-section-heading"><h2>How this connects to my research</h2><p>The same trade-off, without the game layer.</p></div>
+    <div class="academic-section-heading"><h2>How this connects to my research</h2></div>
     <p>A real assistive robot faces exactly this choice. Acting on a wrong prediction can cause a safety incident, while holding too often means the person never gets help. The reported confidence of a model is not always trustworthy, so the decision has to account for how uncertain the underlying estimate really is. Calibrated confidence is what turns a single act or hold threshold into something a clinician can rely on, which is the core of my work on <a href="{{ '/research/' | relative_url }}">reliable human intention prediction</a>.</p>
   </section>
 </div>

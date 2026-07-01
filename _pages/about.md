@@ -31,7 +31,7 @@ latest_posts:
   <div class="signal-band" aria-hidden="true"><div class="signal-band-track"><span>Uncertainty Quantification</span><span>Assistive Robotics</span><span>Calibrated Confidence</span><span>Human Intention</span><span>Safe Autonomy</span><span>Intention Prediction</span><span>Robot Perception</span><span>Uncertainty Quantification</span><span>Assistive Robotics</span><span>Calibrated Confidence</span><span>Human Intention</span><span>Safe Autonomy</span><span>Intention Prediction</span><span>Robot Perception</span></div></div>
 
   <section class="academic-section gate-section">
-    <div class="academic-section-heading"><h2>The core question</h2><p>A robot should only assist once its calibrated confidence clears a safety threshold. Move the slider to see the decision flip.</p></div>
+    <div class="academic-section-heading"><h2>The core question</h2></div>
     <div class="confidence-gate" data-confidence-gate data-threshold="72">
       <div class="gate-scene" aria-hidden="true">
         <div class="gate-bot"><span class="gate-eye"></span><span class="gate-eye"></span></div>
@@ -57,7 +57,6 @@ latest_posts:
   <section class="academic-section">
     <div class="academic-section-heading">
       <h2>Research with a clear decision point</h2>
-      <p>My work connects uncertainty estimation to the decisions a robot actually makes, not only to abstract model scores.</p>
     </div>
     <div class="academic-grid">
       <article class="academic-card"><span class="number">01 / RELIABILITY</span><h3>Calibrated confidence</h3><p>Turning model confidence into an interpretable reliability estimate that can safely trigger or withhold robot assistance.</p></article>
@@ -70,7 +69,6 @@ latest_posts:
   <section class="academic-section">
     <div class="academic-section-heading">
       <h2>About me</h2>
-      <p>Computer science, grounded in human movement and real robotic systems.</p>
     </div>
     <p>I work in the Neuromechanics and Rehabilitation Robotics group at the Hertie Institute for Clinical Brain Research and the Center for Integrative Neuroscience. My current research investigates reliable human-intention prediction for assistive devices, including the <strong>iAssistADL</strong> project that helps people with neurodegenerative movement disorders eat and drink on their own. The question running through it is when a prediction is reliable enough to act on.</p>
     <p>Previously I completed an M.Sc. in Computer Science at the Karlsruhe Institute of Technology, specializing in software engineering and machine learning. During my master's research at the German Aerospace Center (DLR), I developed methods that explain uncertainty in point-cloud registration. I hold a B.Sc. in Computer Science from the University of Tübingen with a minor in Psychology.</p>

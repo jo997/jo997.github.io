@@ -25,7 +25,7 @@ nav_order: 1
   </div>
 
   <section class="academic-section">
-    <div class="academic-section-heading"><h2>Current research themes</h2><p>Four connected layers of a reliable, human-centered robot.</p></div>
+    <div class="academic-section-heading"><h2>Current research themes</h2></div>
     <div class="academic-grid academic-grid-4">
       <article class="academic-card"><span class="number">PERCEPTION</span><h3>Where does uncertainty come from?</h3><p>Human-interpretable attribution methods that point to concrete failure sources in robot perception, such as sensor noise, poor initialization, or too little overlap, instead of returning one opaque score.</p></article>
       <article class="academic-card"><span class="number">INTENTION</span><h3>What is the person trying to do?</h3><p>Temporal, multimodal models of human activity and intention for assistive devices, using calibration and selective prediction so the model can flag when its own estimate is unreliable.</p></article>
@@ -35,7 +35,7 @@ nav_order: 1
   </section>
 
   <section class="academic-section">
-    <div class="academic-section-heading"><h2>Where uncertainty shows up</h2><p>Uncertainty is not only a machine-learning problem. It appears at every stage where the system relies on a value that might be wrong.</p></div>
+    <div class="academic-section-heading"><h2>Where uncertainty shows up</h2></div>
     <div class="uncertainty-map">
       <div class="uq-node"><span class="uq-dot"></span><strong>Machine learning</strong><p>Calibration and selective prediction for temporal activity and intention models.</p></div>
       <div class="uq-node"><span class="uq-dot"></span><strong>Perception</strong><p>Attributing point cloud registration error to interpretable, physical causes.</p></div>
@@ -46,7 +46,7 @@ nav_order: 1
   </section>
 
   <section class="academic-section applied-section">
-    <div class="academic-section-heading"><h2>Assistive robotics in practice</h2><p>The applied context for much of this work is helping people with movement disorders keep their everyday independence.</p></div>
+    <div class="academic-section-heading"><h2>Assistive robotics in practice</h2></div>
     <div class="applied-panel">
       <div class="applied-lead">
         <p>Upper-limb activities of daily living, especially eating and drinking, are central to independence. People living with cerebellar ataxia, Parkinson's disease, or multiple sclerosis often retain their strength and their intent, but tremor and overshooting movements disrupt the motion they are trying to make. As the disease progresses, eating and drinking without help become increasingly difficult.</p>
@@ -63,7 +63,7 @@ nav_order: 1
   </section>
 
   <section class="academic-section">
-    <div class="academic-section-heading"><h2>Research in five papers</h2><p>A short summary of each paper. Links go to arXiv.</p></div>
+    <div class="academic-section-heading"><h2>Research in five papers</h2></div>
     <div class="paper-list">
       <article class="paper-card"><div class="paper-meta">2026 · ICRA Workshop</div><div><h3>Confidence-Gated Robot Autonomy</h3><p>Tests whether sophisticated uncertainty methods actually improve act or defer decisions. Once the base model is competent, simple softmax scores, dropout, and ensembles often produce similar gating behavior, and choosing the threshold matters more than choosing the estimator.</p><div class="paper-tags"><span>Selective prediction</span><span>Activity recognition</span><span>Uncertainty</span></div><a href="https://arxiv.org/abs/2605.18045">View on arXiv →</a></div></article>
       <article class="paper-card"><div class="paper-meta">2026 · BioRob submission</div><div><h3>When to Act</h3><p>Introduces a calibrated ACT or HOLD rule for assistive robotics. Post-hoc calibration reduces the gap between confidence and actual correctness by roughly an order of magnitude, which turns the action threshold into an interpretable safety parameter a clinician can reason about.</p><div class="paper-tags"><span>Calibration</span><span>Intention prediction</span><span>Assistive robotics</span></div><a href="https://arxiv.org/abs/2601.04982">View on arXiv →</a></div></article>

@@ -1188,8 +1188,13 @@ article.post .post-header {
 }
 
 .hud-stat strong {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-variant-numeric: tabular-nums;
+}
+
+.hud-stat strong.hud-level {
+  font-size: 1rem;
+  color: var(--academic-accent);
 }
 
 .hud-trust {
@@ -1247,7 +1252,7 @@ article.post .post-header {
 .game-board {
   position: relative;
   overflow: hidden;
-  padding: clamp(1rem, 3vw, 1.6rem);
+  padding: clamp(1.2rem, 3vw, 2rem);
   border: 1px solid var(--academic-line);
   border-radius: 1.25rem;
   background:
@@ -1257,8 +1262,8 @@ article.post .post-header {
 
 .game-stage {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.62fr);
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.6fr);
+  gap: 1.15rem;
 }
 
 .stage-sensor {
@@ -1295,7 +1300,7 @@ article.post .post-header {
 #g-canvas {
   display: block;
   width: 100%;
-  height: clamp(240px, 42vw, 320px);
+  height: clamp(300px, 46vw, 430px);
   border: 1px solid var(--academic-line);
   border-radius: 0.9rem;
   background: color-mix(in srgb, #0b1622 82%, var(--global-bg-color));
@@ -1351,8 +1356,8 @@ article.post .post-header {
 }
 
 .game-bot .gate-bot {
-  width: 92px;
-  height: 74px;
+  width: 110px;
+  height: 88px;
 }
 
 .game-bot.is-act {
@@ -1408,7 +1413,7 @@ article.post .post-header {
 }
 
 .conf-num strong {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1441,18 +1446,16 @@ article.post .post-header {
 
 .game-btn {
   display: inline-flex;
-  gap: 0.6rem;
+  flex-direction: column;
+  gap: 0.22rem;
   align-items: center;
   justify-content: center;
-  min-height: 62px;
+  min-height: 80px;
   padding: 0.9rem 1.2rem;
   border: 1px solid var(--academic-line);
   border-radius: 0.9rem;
   background: var(--academic-card-bg);
   color: var(--global-text-color);
-  font-size: 1.15rem;
-  font-weight: 750;
-  letter-spacing: 0.03em;
   cursor: pointer;
   transition:
     transform 0.14s ease,
@@ -1462,13 +1465,19 @@ article.post .post-header {
     opacity 0.18s ease;
 }
 
-.game-btn kbd {
-  padding: 0.1rem 0.45rem;
-  border: 1px solid color-mix(in srgb, var(--global-text-color) 25%, transparent);
-  border-radius: 0.4rem;
-  background: color-mix(in srgb, var(--global-text-color) 8%, transparent);
-  font-size: 0.78rem;
+.game-btn .btn-label {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.game-btn .btn-key {
+  font-size: 0.68rem;
   font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
 
 .game-btn.act {
@@ -1616,6 +1625,71 @@ article.post .post-header {
 .ov-fine {
   margin: 0.75rem 0 0;
   font-size: 0.78rem;
+}
+
+.ov-sub {
+  margin: 0.4rem 0 0.5rem !important;
+  color: var(--academic-accent) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.diff-picker {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.diff-btn {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--academic-line);
+  border-radius: 0.7rem;
+  background: var(--academic-card-bg);
+  color: var(--global-text-color);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.diff-btn b {
+  font-size: 0.98rem;
+}
+
+.diff-btn span {
+  color: var(--academic-muted);
+  font-size: 0.72rem;
+}
+
+.diff-btn:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--academic-accent) 45%, transparent);
+}
+
+.diff-btn.active {
+  border-color: transparent;
+  background: linear-gradient(120deg, color-mix(in srgb, var(--academic-accent) 20%, var(--academic-card-bg)), color-mix(in srgb, var(--academic-accent-2) 22%, var(--academic-card-bg)));
+  box-shadow: 0 0 0 1px var(--academic-accent) inset;
+}
+
+.diff-btn.active b {
+  color: var(--academic-accent);
+}
+
+.diff-btn[data-diff='impossible'].active {
+  box-shadow: 0 0 0 1px #ef4444 inset;
+  background: linear-gradient(120deg, color-mix(in srgb, #ef4444 18%, var(--academic-card-bg)), color-mix(in srgb, var(--academic-accent-2) 18%, var(--academic-card-bg)));
+}
+
+.diff-btn[data-diff='impossible'].active b {
+  color: #ef4444;
 }
 
 .ov-stats {
