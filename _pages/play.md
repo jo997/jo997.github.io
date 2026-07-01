@@ -39,6 +39,7 @@ description: "Act or Hold, a small game about deciding when a robot should trust
             </div>
             <canvas id="g-canvas" aria-label="Noisy sensor estimate"></canvas>
             <div class="spread-meter"><span>sensor spread</span><div class="meter"><i id="g-spread" style="width:40%"></i></div></div>
+            <p class="cue-hint">Tight, low spread means a reliable estimate. Wide, high spread means high uncertainty.</p>
           </div>
 
           <div class="stage-side">
@@ -48,6 +49,7 @@ description: "Act or Hold, a small game about deciding when a robot should trust
             <div class="conf-block">
               <div class="gate-track"><div class="gate-fill" id="g-conffill" style="width:0%"></div><div class="gate-threshold" style="left:64%"><span>act line</span></div></div>
               <div class="conf-num"><strong id="g-conf">&hellip;</strong><span>reported confidence</span></div>
+              <p class="cue-hint">The model's own claim. It can be miscalibrated, so a high number is not proof on its own. The act line marks where confidence would justify acting if it were well calibrated.</p>
             </div>
             <div class="timer-wrap"><i id="g-timer" style="width:100%"></i></div>
           </div>
@@ -63,7 +65,14 @@ description: "Act or Hold, a small game about deciding when a robot should trust
         <div class="game-overlay" id="g-overlay"></div>
       </div>
 
-      <p class="game-note">Scoring rewards calibrated calls. Assisting on a correct prediction earns points and builds trust, a wrong assist costs a safety incident, holding on a wrong prediction avoids one, and holding on a correct prediction is a missed assist. Three incidents ends the run.</p>
+      <div class="game-legend">
+        <div class="legend-card"><span class="legend-tag">Sensor spread</span><p>The dot scatter and the spread bar. A tight cluster is a reliable estimate. A wide scatter is high uncertainty.</p></div>
+        <div class="legend-card"><span class="legend-tag">Reported confidence</span><p>The model's stated confidence. It is sometimes inflated, so a high number alone is not enough to act.</p></div>
+        <div class="legend-card act"><span class="legend-tag">When to ACT</span><p>The cluster is tight, the spread is low, and there is one clear target. Assisting is worth it.</p></div>
+        <div class="legend-card hold"><span class="legend-tag">When to HOLD</span><p>The spread is high, the confidence looks inflated, or two targets compete. Wait for a safer moment.</p></div>
+      </div>
+
+      <p class="game-note">Scoring rewards calibrated calls. Assisting on a correct prediction earns points and builds trust, a wrong assist costs a safety incident, holding on a wrong prediction avoids one, and holding on a correct prediction is a missed assist. Difficulty sets the noise, how often confidence lies, the timer, and how many incidents end the run.</p>
     </div>
   </section>
 

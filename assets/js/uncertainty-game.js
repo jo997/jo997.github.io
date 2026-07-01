@@ -20,7 +20,7 @@
   };
 
   var TEAL_FALLBACK = '#2dd4bf', VIOLET_FALLBACK = '#a78bfa';
-  var IDLE_TEXT = 'Read the sensor spread and the reported confidence, then choose. Reported confidence can be wrong.';
+  var IDLE_TEXT = 'A tight cluster and low spread means the estimate is reliable, so lean ACT. A wide scatter, an inflated confidence bar, or two competing targets means lean HOLD.';
 
   // Difficulty presets. Higher = noisier, more miscalibrated confidence, shorter
   // timer, fewer safety margins. Impossible drains trust every round and gives a
@@ -316,7 +316,8 @@
       '<div class="ov-card">' +
       '<div class="academic-kicker">Interactive</div>' +
       '<h2>Act or Hold</h2>' +
-      '<p>You are the safety layer of an assistive robot. Each round shows a noisy sensor estimate and a reported confidence. Choose <b>ACT</b> to assist or <b>HOLD</b> to wait. Acting on a wrong estimate causes a safety incident.</p>' +
+      '<p>You are the safety layer of an assistive robot. Each round shows two cues about what the user wants. The <b>sensor spread</b> on the left is the honest one: a tight cluster of dots is a reliable estimate, a wide scatter is not. The <b>reported confidence</b> on the right is the model\'s own claim, and it is sometimes overconfident, so do not trust it alone.</p>' +
+      '<p>Press <b>ACT</b> to assist when the estimate looks reliable, or <b>HOLD</b> to wait when it does not. Acting on a wrong estimate causes a safety incident.</p>' +
       '<p class="ov-sub">Choose a difficulty</p>' +
       pickerHTML() +
       '<button type="button" class="game-btn act big" id="g-start"><span class="btn-label">Start</span><span class="btn-key">enter</span></button>' +
