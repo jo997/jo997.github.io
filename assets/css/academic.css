@@ -1611,19 +1611,21 @@ article.post .post-header {
 .diff-picker {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-  margin: 0 0 1rem;
+  column-gap: 0.6rem;
+  row-gap: 0.6rem;
+  margin: 0.35rem 0 1.4rem;
 }
 
 .diff-btn {
   display: grid;
-  gap: 0.15rem;
-  padding: 0.6rem 0.75rem;
+  gap: 0.3rem;
+  padding: 0.7rem 0.85rem;
   border: 1px solid var(--academic-line);
   border-radius: 0.7rem;
   background: var(--academic-card-bg);
   color: var(--global-text-color);
   text-align: left;
+  line-height: 1.3;
   cursor: pointer;
   transition:
     transform 0.12s ease,
@@ -1636,6 +1638,7 @@ article.post .post-header {
 }
 
 .diff-btn span {
+  display: block;
   color: var(--academic-muted);
   font-size: 0.72rem;
 }
@@ -1690,11 +1693,67 @@ article.post .post-header {
   text-transform: uppercase;
 }
 
+.cue-hint {
+  margin: 0.1rem 0 0;
+  color: var(--academic-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.game-legend {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.legend-card {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--academic-line);
+  border-left-width: 3px;
+  border-radius: 0.75rem;
+  background: var(--academic-card-bg);
+}
+
+.legend-card .legend-tag {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--academic-accent);
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.legend-card p {
+  margin: 0;
+  color: var(--academic-muted);
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+.legend-card.act {
+  border-left-color: var(--academic-accent);
+}
+
+.legend-card.hold {
+  border-left-color: #d97706;
+}
+
+.legend-card.hold .legend-tag {
+  color: #d97706;
+}
+
 .game-note {
   margin: 0.5rem 0 0;
   color: var(--academic-muted);
   font-size: 0.92rem;
   line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  .game-legend {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 760px) {
