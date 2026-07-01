@@ -7,3 +7,22 @@
 
 "Vision":
   color: "#009f36"
+
+"ICRA":
+  url: https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra
+  color: "#0f766e"
+
+"ICRA Workshop":
+  url: https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra
+  color: "#2dd4bf"
+
+"BioRob":
+  url: https://www.ieee-ras.org/conferences-workshops/technically-co-sponsored/biorob
+  color: "#1e3a5f"
+
+"IROS":
+  url: https://www.ieee-ras.org/conferences-workshops/fully-sponsored/iros
+  color: "#7c3aed"
+
+"Preprint":
+  color: "#64748b"

@@ -250,6 +250,10 @@ article.post .post-header {
   gap: 1rem;
 }
 
+.academic-grid.academic-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .academic-card {
   position: relative;
   overflow: hidden;
@@ -549,7 +553,369 @@ article.post .post-header {
   font-size: 0.82rem;
 }
 
+.cv-note {
+  margin: 1rem 0 0;
+  color: var(--academic-muted);
+  font-size: 0.9rem;
+}
+
+/* Uncertainty map */
+.uncertainty-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.uq-node {
+  position: relative;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  border: 1px solid var(--academic-line);
+  border-radius: 1rem;
+  background: var(--global-bg-color);
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease;
+}
+
+.uq-node:hover {
+  border-color: color-mix(in srgb, var(--academic-accent) 45%, transparent);
+  transform: translateY(-5px);
+}
+
+.uq-dot {
+  position: absolute;
+  top: 1.55rem;
+  left: 0.75rem;
+  width: 9px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--academic-accent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--academic-accent) 14%, transparent);
+  animation: pulse-node 2.6s ease-in-out infinite;
+}
+
+.uq-node:nth-child(2) .uq-dot {
+  animation-delay: 0.4s;
+}
+.uq-node:nth-child(3) .uq-dot {
+  animation-delay: 0.8s;
+}
+.uq-node:nth-child(4) .uq-dot {
+  animation-delay: 1.2s;
+}
+.uq-node:nth-child(5) .uq-dot {
+  animation-delay: 1.6s;
+}
+
+.uq-node strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.uq-node p {
+  margin: 0;
+  color: var(--academic-muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* Applied / assistive robotics panel */
+.applied-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid var(--academic-line);
+  border-radius: 1.25rem;
+  background: linear-gradient(120deg, var(--academic-surface), var(--global-bg-color));
+}
+
+.applied-lead p {
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+.applied-lead p:last-child {
+  margin-bottom: 0;
+}
+
+.applied-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.applied-stat {
+  padding: 0.9rem;
+  border: 1px solid var(--academic-line);
+  border-radius: 0.85rem;
+  background: var(--global-bg-color);
+}
+
+.applied-stat strong {
+  display: block;
+  color: var(--academic-accent);
+  font-size: 0.95rem;
+}
+
+.applied-stat span {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--academic-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.applied-context {
+  margin: 1.25rem 0 0;
+  color: var(--academic-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+/* Interactive confidence gate */
+.confidence-gate {
+  --gate-color: #d97706;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: center;
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+  border: 1px solid var(--academic-line);
+  border-radius: 1.25rem;
+  background: linear-gradient(120deg, var(--academic-surface), var(--global-bg-color));
+  transition: border-color 300ms ease;
+}
+
+.confidence-gate.is-act {
+  --gate-color: var(--academic-accent);
+  border-color: color-mix(in srgb, var(--academic-accent) 45%, transparent);
+}
+
+.gate-scene {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 130px;
+}
+
+.gate-bot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 68px;
+  border: 2px solid var(--gate-color);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--gate-color) 12%, var(--global-bg-color));
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--gate-color) 10%, transparent);
+  transition:
+    border-color 300ms ease,
+    background 300ms ease,
+    transform 300ms ease;
+}
+
+.confidence-gate.is-act .gate-bot {
+  transform: translateY(-4px);
+}
+
+.gate-bot::before {
+  position: absolute;
+  top: -18px;
+  width: 2px;
+  height: 12px;
+  background: var(--gate-color);
+  content: "";
+}
+
+.gate-bot::after {
+  position: absolute;
+  top: -24px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gate-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--gate-color) 18%, transparent);
+  content: "";
+  animation: pulse-node 2s ease-in-out infinite;
+}
+
+.gate-eye {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gate-color);
+  transition: background 300ms ease;
+}
+
+.confidence-gate.is-hold .gate-eye {
+  height: 3px;
+  border-radius: 3px;
+  align-self: center;
+}
+
+.gate-signal {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.gate-signal span {
+  position: absolute;
+  border: 1px solid var(--gate-color);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.confidence-gate.is-act .gate-signal span {
+  animation: gate-ping 2.4s ease-out infinite;
+}
+
+.gate-signal span:nth-child(1) {
+  width: 90px;
+  aspect-ratio: 1;
+}
+.gate-signal span:nth-child(2) {
+  width: 90px;
+  aspect-ratio: 1;
+  animation-delay: 0.8s;
+}
+.gate-signal span:nth-child(3) {
+  width: 90px;
+  aspect-ratio: 1;
+  animation-delay: 1.6s;
+}
+
+@keyframes gate-ping {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.6);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+.gate-track {
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--global-text-color) 10%, transparent);
+  overflow: hidden;
+}
+
+.gate-fill {
+  height: 100%;
+  width: 46%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--gate-color) 55%, transparent), var(--gate-color));
+  transition:
+    width 120ms ease,
+    background 300ms ease;
+}
+
+.gate-threshold {
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  left: 72%;
+  width: 2px;
+  background: var(--academic-blue);
+}
+
+.gate-threshold span {
+  position: absolute;
+  top: -1.35rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--academic-blue);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.gate-slider {
+  width: 100%;
+  margin: 1.5rem 0 1.25rem;
+  accent-color: var(--gate-color);
+  cursor: pointer;
+}
+
+.gate-readout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.gate-conf-box,
+.gate-verdict {
+  flex: 1 1 160px;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--academic-line);
+  border-radius: 0.85rem;
+  background: var(--global-bg-color);
+}
+
+.gate-conf-box strong {
+  display: block;
+  font-size: 1.5rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.gate-conf-box span,
+.gate-verdict span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--academic-muted);
+  font-size: 0.78rem;
+}
+
+.gate-verdict {
+  border-color: color-mix(in srgb, var(--gate-color) 40%, transparent);
+  background: color-mix(in srgb, var(--gate-color) 10%, var(--global-bg-color));
+}
+
+.gate-verdict strong {
+  display: block;
+  color: var(--gate-color);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 980px) {
+  .academic-grid.academic-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 760px) {
+  .confidence-gate {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .gate-scene {
+    height: 110px;
+  }
+  .applied-panel {
+    grid-template-columns: 1fr;
+  }
+  .academic-grid.academic-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
   .academic-grid,
   .academic-section-heading,
   .cv-summary,
@@ -597,12 +963,21 @@ article.post .post-header {
   .signal-orbit,
   .signal-orbit::before,
   .signal-orbit span,
-  .signal-band-track {
+  .signal-band-track,
+  .uq-dot,
+  .gate-bot::after,
+  .gate-signal span {
     animation: none;
   }
   .academic-card,
   .paper-card,
-  .academic-button {
+  .academic-button,
+  .uq-node,
+  .gate-bot,
+  .gate-fill {
     transition: none;
+  }
+  .gate-signal span {
+    opacity: 0;
   }
 }

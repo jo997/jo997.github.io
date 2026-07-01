@@ -8,44 +8,50 @@
   year            = {2026},
   arxiv           = {2605.18045},
   bibtex_show     = {true},
-  additional_info = {Evaluates uncertainty by the act/defer decisions it produces and finds that model competence and threshold choice often matter more than estimator complexity.}
+  selected        = {true},
+  additional_info = {Benchmarks softmax scores, Monte Carlo dropout, and deep ensembles by the act or defer decisions they produce for wearable activity recognition. Once the base model is competent, estimator complexity fades and the choice of gating threshold becomes the dominant factor. A practical reminder that uncertainty is only useful when it changes an action.}
 }
 
 @article{gaus2026when,
+  abbr            = {BioRob},
   title           = {When to Act: Calibrated Confidence for Reliable Human Intention Prediction in Assistive Robotics},
   author          = {Gaus, Johannes A. and Ilg, Winfried and Haeufle, Daniel},
   year            = {2026},
   arxiv           = {2601.04982},
   bibtex_show     = {true},
-  additional_info = {Turns calibrated prediction confidence into a verifiable ACT/HOLD safety rule for assistive devices.}
+  selected        = {true},
+  additional_info = {Turns calibrated intention confidence into a verifiable ACT or HOLD safety rule for assistive devices. Post-hoc calibration shrinks the gap between reported confidence and true correctness by roughly an order of magnitude, so a single threshold becomes an interpretable safety parameter a clinician can reason about. Submitted to IEEE RAS/EMBS BioRob.}
 }
 
 @inproceedings{gaus2026human,
   abbr            = {ICRA},
   title           = {Human-Interpretable Uncertainty Explanations for Point Cloud Registration},
   author          = {Gaus, Johannes A. and Schneider, Loris and Shi, Yitian and Lee, Jongseok and Rayyes, Rania and Triebel, Rudolph},
-  booktitle       = {IEEE International Conference on Robotics and Automation},
+  booktitle       = {IEEE International Conference on Robotics and Automation (ICRA)},
   year            = {2026},
+  address         = {Vienna, Austria},
   arxiv           = {2509.18786},
   bibtex_show     = {true},
-  additional_info = {Introduces GP-CA to quantify registration uncertainty and attribute it to interpretable failure sources using sample-efficient active learning.}
+  selected        = {true},
+  additional_info = {Introduces GP-CA, which does more than score registration uncertainty: it attributes that uncertainty to concrete, human-readable causes such as sensor noise, poor initialization, and limited overlap. Sample-efficient active learning discovers new failure sources with few queries, validated in simulation and on a real robot. Accepted at ICRA 2026, Vienna.}
 }
 
 @article{gaus2026super,
-  abbr            = {ICRA Workshop},
+  abbr            = {Preprint},
   title           = {SUPER: A Framework for Sensitivity-Based Uncertainty-Aware Performance and Risk Assessment in Visual Inertial Odometry},
   author          = {Gaus, Johannes A. and Häufle, Daniel and Baek, Woo-Jeong},
   year            = {2026},
   arxiv           = {2512.14189},
   bibtex_show     = {true},
-  additional_info = {Uses optimizer sensitivities for real-time VIO risk prediction and recovery triggering with negligible computational overhead.}
+  additional_info = {Reads a risk signal straight out of the optimizer's own sensitivity structure, so it is backend agnostic and needs no extra sensors or retraining. SUPER forecasts trajectory degradation before it happens and triggers recovery for under 0.2 percent additional CPU cost. Currently under review.}
 }
 
 @article{gaus2026guard,
+  abbr            = {IROS},
   title           = {GUARD: Toward a Compromise Between Traditional Control and Learning for Safe Robot Systems},
   author          = {Gaus, Johannes A. and Yoon, Junheon and Baek, Woo-Jeong and Choi, Seungwon and Park, Suhan and Park, Jaeheung},
   year            = {2026},
   arxiv           = {2509.23312},
   bibtex_show     = {true},
-  additional_info = {Combines model-predictive control with uncertainty-aware perception to support interpretable, real-time collision avoidance.}
+  additional_info = {Pairs transparent model-predictive control with uncertainty-aware perception so collision avoidance stays fast without becoming a black box. The framework keeps the sample efficiency of learning while leaving the safety-critical behavior legible and auditable. Under submission at IROS 2026.}
 }

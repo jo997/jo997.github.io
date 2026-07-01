@@ -2,7 +2,7 @@
 layout: page
 title: research
 permalink: /research/
-description: Research on uncertainty-aware machine learning and reliable assistive robotics.
+description: Research on uncertainty-aware machine learning, human intention prediction, and reliable assistive robotics.
 nav: true
 nav_order: 1
 ---
@@ -14,7 +14,7 @@ nav_order: 1
     <div class="signal-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="academic-kicker">Research overview</div>
     <h1>Uncertainty that changes what a robot does.</h1>
-    <p class="academic-lead">My research moves from estimating uncertainty to using it: deciding when to assist, when to stop, when to relocalize, and when a human or fallback policy should take over.</p>
+    <p class="academic-lead">I work on the whole reliability loop, from estimating uncertainty in perception, state estimation, and human intention, to using it: deciding when to assist, when to hold, when to relocalize, and when a person or a fallback policy should take over. The guiding question is simple. When is a prediction trustworthy enough to act on?</p>
   </section>
 
   <div class="research-flow" aria-label="Research pipeline">
@@ -24,22 +24,51 @@ nav_order: 1
   </div>
 
   <section class="academic-section">
-    <div class="academic-section-heading"><h2>Current research themes</h2><p>Three connected layers of a reliable autonomous system.</p></div>
-    <div class="academic-grid">
-      <article class="academic-card"><span class="number">PERCEPTION</span><h3>Where does uncertainty come from?</h3><p>I develop human-interpretable attribution methods that identify concrete failure sources in robot perception instead of returning a single opaque score.</p></article>
-      <article class="academic-card"><span class="number">PREDICTION</span><h3>Can confidence be trusted?</h3><p>I study calibration and selective prediction for temporal, multimodal models of human activity and intention.</p></article>
-      <article class="academic-card"><span class="number">ACTION</span><h3>What should the robot do next?</h3><p>I connect uncertainty to act/hold, stop/relocalize, and autonomy/fallback decisions with measurable safety consequences.</p></article>
+    <div class="academic-section-heading"><h2>Current research themes</h2><p>Four connected layers of a reliable, human-centered robot.</p></div>
+    <div class="academic-grid academic-grid-4">
+      <article class="academic-card"><span class="number">PERCEPTION</span><h3>Where does uncertainty come from?</h3><p>Human-interpretable attribution methods that point to concrete failure sources in robot perception, such as sensor noise, poor initialization, or too little overlap, instead of returning one opaque score.</p></article>
+      <article class="academic-card"><span class="number">INTENTION</span><h3>What is the person trying to do?</h3><p>Temporal, multimodal models of human activity and intention for assistive devices, with calibration and selective prediction so the model knows what it does not know.</p></article>
+      <article class="academic-card"><span class="number">ACTION</span><h3>When should the robot act?</h3><p>Turning confidence into act or hold, stop or relocalize, and autonomy or fallback decisions that carry measurable safety consequences.</p></article>
+      <article class="academic-card"><span class="number">CONTROL</span><h3>How does it stay safe and legible?</h3><p>Combining transparent, model-based control with uncertainty-aware perception so safety-critical behavior stays fast, auditable, and understandable.</p></article>
     </div>
+  </section>
+
+  <section class="academic-section">
+    <div class="academic-section-heading"><h2>Uncertainty lives all over the loop</h2><p>Not only inside a neural network. Reliability breaks down wherever a number is trusted more than it should be.</p></div>
+    <div class="uncertainty-map">
+      <div class="uq-node"><span class="uq-dot"></span><strong>Machine learning</strong><p>Calibration and selective prediction for temporal activity and intention models.</p></div>
+      <div class="uq-node"><span class="uq-dot"></span><strong>Perception</strong><p>Attributing point cloud registration error to interpretable, physical causes.</p></div>
+      <div class="uq-node"><span class="uq-dot"></span><strong>State estimation</strong><p>Reading a risk signal out of a visual inertial odometry optimizer before it drifts.</p></div>
+      <div class="uq-node"><span class="uq-dot"></span><strong>Control</strong><p>Feeding perception uncertainty into transparent model-predictive collision avoidance.</p></div>
+      <div class="uq-node"><span class="uq-dot"></span><strong>Human intention</strong><p>Estimating how confident an assistive device should be before it moves with a person.</p></div>
+    </div>
+  </section>
+
+  <section class="academic-section applied-section">
+    <div class="academic-section-heading"><h2>Assistive robotics, where this matters</h2><p>The theory has a face. It is a person trying to eat a meal on their own.</p></div>
+    <div class="applied-panel">
+      <div class="applied-lead">
+        <p>Upper-limb activities of daily living, eating and drinking above all, are the quiet foundation of self-determination and dignity. People living with cerebellar ataxia, Parkinson's disease, or multiple sclerosis often keep their strength and their intent intact, yet tremor and overshooting movements scatter the motion they meant to make. Over time, feeding oneself becomes exhausting or impossible.</p>
+        <p>Within the NeuRoMech group I contribute to <strong>iAssistADL</strong>, an intelligent assistive device that aims to suppress the pathological part of a movement while letting the intended movement through. My piece of that puzzle is reliable human intention prediction: reading what the person wants to do, estimating how sure the system really is, and only then letting the device act. A device that assists at the wrong moment is worse than one that waits.</p>
+      </div>
+      <div class="applied-stats">
+        <div class="applied-stat"><strong>ADLs</strong><span>eating and drinking as the target tasks</span></div>
+        <div class="applied-stat"><strong>Intention</strong><span>predict, then verify confidence, then act</span></div>
+        <div class="applied-stat"><strong>Non-invasive</strong><span>keep the movement the person means to make</span></div>
+        <div class="applied-stat"><strong>NeuRoMech</strong><span>neuromechanics and rehabilitation robotics</span></div>
+      </div>
+    </div>
+    <p class="applied-context">This sits inside the Neuromechanics and Rehabilitation Robotics group at the Hertie Institute for Clinical Brain Research and the Center for Integrative Neuroscience in Tübingen, where computational motor control, neuro-musculoskeletal modeling, and machine learning meet on real clinical problems.</p>
   </section>
 
   <section class="academic-section">
     <div class="academic-section-heading"><h2>Research in five papers</h2><p>Short, plain-language summaries. Each link opens the canonical arXiv record.</p></div>
     <div class="paper-list">
-      <article class="paper-card"><div class="paper-meta">2026 · ICRA Workshop</div><div><h3>Confidence-Gated Robot Autonomy</h3><p>Tests whether sophisticated uncertainty methods actually improve act-or-defer decisions. Once the base model is competent, simple softmax scores, dropout, and ensembles often produce similar gating behavior; choosing the threshold matters more.</p><div class="paper-tags"><span>Selective prediction</span><span>Activity recognition</span><span>Uncertainty</span></div><a href="https://arxiv.org/abs/2605.18045">View on arXiv →</a></div></article>
-      <article class="paper-card"><div class="paper-meta">2026 · Preprint</div><div><h3>When to Act</h3><p>Introduces a calibrated ACT/HOLD rule for assistive robotics. Post-hoc calibration reduces the gap between confidence and actual correctness by roughly an order of magnitude, making the action threshold an interpretable safety parameter.</p><div class="paper-tags"><span>Calibration</span><span>Intention prediction</span><span>Assistive robotics</span></div><a href="https://arxiv.org/abs/2601.04982">View on arXiv →</a></div></article>
-      <article class="paper-card"><div class="paper-meta">2026 · ICRA</div><div><h3>Human-Interpretable Uncertainty Explanations</h3><p>Proposes GP-CA, which attributes point-cloud registration uncertainty to causes such as sensor noise, poor initialization, and limited overlap. Active learning discovers new failure sources efficiently, including in a real robot experiment.</p><div class="paper-tags"><span>Point clouds</span><span>Active learning</span><span>Explainability</span></div><a href="https://arxiv.org/abs/2509.18786">View on arXiv →</a></div></article>
-      <article class="paper-card"><div class="paper-meta">2026 · ICRA Workshop</div><div><h3>SUPER</h3><p>Derives a lightweight, backend-agnostic risk indicator for visual-inertial odometry from the optimizer's sensitivity structure. It predicts trajectory degradation ahead of time and triggers recovery with less than 0.2% additional CPU cost.</p><div class="paper-tags"><span>Visual-inertial odometry</span><span>Risk prediction</span><span>SLAM</span></div><a href="https://arxiv.org/abs/2512.14189">View on arXiv →</a></div></article>
-      <article class="paper-card"><div class="paper-meta">2026 · Preprint</div><div><h3>GUARD</h3><p>Combines transparent model-predictive control with uncertainty-aware perception for collision avoidance. The framework aims to retain the efficiency of learning while keeping safety-relevant behavior interpretable.</p><div class="paper-tags"><span>Safe control</span><span>Collision avoidance</span><span>Robotics</span></div><a href="https://arxiv.org/abs/2509.23312">View on arXiv →</a></div></article>
+      <article class="paper-card"><div class="paper-meta">2026 · ICRA Workshop</div><div><h3>Confidence-Gated Robot Autonomy</h3><p>Tests whether sophisticated uncertainty methods actually improve act or defer decisions. Once the base model is competent, simple softmax scores, dropout, and ensembles often produce similar gating behavior, and choosing the threshold matters more than choosing the estimator.</p><div class="paper-tags"><span>Selective prediction</span><span>Activity recognition</span><span>Uncertainty</span></div><a href="https://arxiv.org/abs/2605.18045">View on arXiv →</a></div></article>
+      <article class="paper-card"><div class="paper-meta">2026 · BioRob submission</div><div><h3>When to Act</h3><p>Introduces a calibrated ACT or HOLD rule for assistive robotics. Post-hoc calibration reduces the gap between confidence and actual correctness by roughly an order of magnitude, which turns the action threshold into an interpretable safety parameter a clinician can reason about.</p><div class="paper-tags"><span>Calibration</span><span>Intention prediction</span><span>Assistive robotics</span></div><a href="https://arxiv.org/abs/2601.04982">View on arXiv →</a></div></article>
+      <article class="paper-card"><div class="paper-meta">2026 · ICRA · Vienna</div><div><h3>Human-Interpretable Uncertainty Explanations</h3><p>Proposes GP-CA, which attributes point-cloud registration uncertainty to causes such as sensor noise, poor initialization, and limited overlap. Active learning discovers new failure sources efficiently, including in a real robot experiment.</p><div class="paper-tags"><span>Point clouds</span><span>Active learning</span><span>Explainability</span></div><a href="https://arxiv.org/abs/2509.18786">View on arXiv →</a></div></article>
+      <article class="paper-card"><div class="paper-meta">2026 · Under review</div><div><h3>SUPER</h3><p>Derives a lightweight, backend-agnostic risk indicator for visual-inertial odometry from the optimizer's own sensitivity structure. It predicts trajectory degradation ahead of time and triggers recovery for less than 0.2 percent additional CPU cost.</p><div class="paper-tags"><span>Visual-inertial odometry</span><span>Risk prediction</span><span>SLAM</span></div><a href="https://arxiv.org/abs/2512.14189">View on arXiv →</a></div></article>
+      <article class="paper-card"><div class="paper-meta">2026 · IROS submission</div><div><h3>GUARD</h3><p>Combines transparent model-predictive control with uncertainty-aware perception for collision avoidance. The framework keeps the efficiency of learning while leaving safety-relevant behavior interpretable and auditable.</p><div class="paper-tags"><span>Safe control</span><span>Collision avoidance</span><span>Robotics</span></div><a href="https://arxiv.org/abs/2509.23312">View on arXiv →</a></div></article>
     </div>
   </section>
 </div>
