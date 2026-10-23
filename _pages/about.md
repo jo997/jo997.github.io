@@ -20,7 +20,7 @@ latest_posts:
     <div class="signal-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="academic-kicker">Reliable AI · Assistive Robotics · Human-Centered Autonomy</div>
     <h1>Building robots that know when to act, and when to wait.</h1>
-    <p class="academic-lead">I am Johannes Gaus, a Ph.D. researcher at the University of Tübingen. I study how uncertainty, calibration, and interpretable risk estimates can make learning-enabled robots safer and more useful around people, with a focus on assistive devices that help someone eat, drink, and move on their own.</p>
+    <p class="academic-lead">I am Johannes Gaus, a Ph.D. researcher at the University of Tübingen. I study uncertainty, calibration, and interpretable risk in learning-enabled robots, with a focus on assistive devices that support independent eating, drinking, and movement.</p>
     <div class="academic-actions">
       <a class="academic-button primary" href="{{ '/research/' | relative_url }}">Explore my research</a>
       <a class="academic-button" href="{{ '/publications/' | relative_url }}">Read publications</a>
@@ -29,6 +29,25 @@ latest_posts:
   </section>
 
   <div class="signal-band" aria-hidden="true"><div class="signal-band-track"><span>Uncertainty Quantification</span><span>Assistive Robotics</span><span>Calibrated Confidence</span><span>Human Intention</span><span>Safe Autonomy</span><span>Intention Prediction</span><span>Robot Perception</span><span>Uncertainty Quantification</span><span>Assistive Robotics</span><span>Calibrated Confidence</span><span>Human Intention</span><span>Safe Autonomy</span><span>Intention Prediction</span><span>Robot Perception</span></div></div>
+
+  <div class="academic-facts" aria-label="Current affiliations">
+    <div class="academic-fact"><strong>Ph.D. Researcher</strong><span>Computer Science · University of Tübingen</span></div>
+    <div class="academic-fact"><strong>IMPRS-IS Scholar</strong><span>International Max Planck Research School</span></div>
+    <div class="academic-fact"><strong>NeuRoMech Lab</strong><span>Neuromechanics &amp; Rehabilitation Robotics</span></div>
+  </div>
+
+  <section class="academic-section">
+    <div class="academic-section-heading">
+      <h2>Background</h2>
+    </div>
+    <p>I work in the Neuromechanics and Rehabilitation Robotics group at the Hertie Institute for Clinical Brain Research and the Center for Integrative Neuroscience. My current research investigates reliable human-intention prediction for assistive devices. This includes the <strong>iAssistADL</strong> project, which aims to help people with neurodegenerative movement disorders eat and drink independently. Across these projects, I ask when a prediction is reliable enough for a robot to act on it.</p>
+    <p>I completed an M.Sc. in Computer Science at the Karlsruhe Institute of Technology, specializing in software engineering and machine learning. During my master's research at the German Aerospace Center (DLR), I developed methods that explain uncertainty in point-cloud registration. I hold a B.Sc. in Computer Science from the University of Tübingen with a minor in Psychology.</p>
+    <div class="academic-actions">
+      <a class="academic-button" href="{{ '/cv/' | relative_url }}">View academic CV</a>
+      <a class="academic-button" href="https://www.linkedin.com/in/jgaus1/">LinkedIn</a>
+      <a class="academic-button" href="https://github.com/jo997">GitHub</a>
+    </div>
+  </section>
 
   <section class="academic-section gate-section">
     <div class="academic-section-heading"><h2>The core question</h2></div>
@@ -48,36 +67,18 @@ latest_posts:
     </div>
   </section>
 
-  <div class="academic-facts" aria-label="Current affiliations">
-    <div class="academic-fact"><strong>Ph.D. Researcher</strong><span>Computer Science · University of Tübingen</span></div>
-    <div class="academic-fact"><strong>IMPRS-IS Scholar</strong><span>International Max Planck Research School</span></div>
-    <div class="academic-fact"><strong>NeuRoMech Lab</strong><span>Neuromechanics &amp; Rehabilitation Robotics</span></div>
-  </div>
-
   <section class="academic-section">
     <div class="academic-section-heading">
       <h2>Research with a clear decision point</h2>
     </div>
     <div class="academic-grid">
-      <article class="academic-card"><span class="number">01 / RELIABILITY</span><h3>Calibrated confidence</h3><p>Turning model confidence into an interpretable reliability estimate that can safely trigger or withhold robot assistance.</p></article>
-      <article class="academic-card"><span class="number">02 / INTENTION</span><h3>Human intention prediction</h3><p>Inferring what a person is trying to do from multimodal signals, so an assistive device supports the intended movement instead of disrupting it.</p></article>
-      <article class="academic-card"><span class="number">03 / EXPLAINABILITY</span><h3>Uncertainty attribution</h3><p>Explaining whether sensor noise, geometry, initialization, or missing observations caused a perception system to become uncertain.</p></article>
-      <article class="academic-card"><span class="number">04 / AUTONOMY</span><h3>Risk-aware control</h3><p>Combining learning-based perception with transparent control and fallback policies for robust, safe embodied systems.</p></article>
+      <article class="academic-card"><span class="number">01 / RELIABILITY</span><h3>Calibrated confidence</h3><p>I calibrate model scores so they reflect observed reliability and support explicit decisions to assist or wait.</p></article>
+      <article class="academic-card"><span class="number">02 / INTENTION</span><h3>Human intention prediction</h3><p>Multimodal signals reveal what a person is trying to do, allowing an assistive device to support the intended movement without disrupting it.</p></article>
+      <article class="academic-card"><span class="number">03 / EXPLAINABILITY</span><h3>Uncertainty attribution</h3><p>My methods identify whether sensor noise, geometry, initialization, or missing observations made a perception system uncertain.</p></article>
+      <article class="academic-card"><span class="number">04 / AUTONOMY</span><h3>Risk-aware control</h3><p>Learning-based perception is paired with transparent control and fallback policies for reliable embodied systems.</p></article>
     </div>
   </section>
 
-  <section class="academic-section">
-    <div class="academic-section-heading">
-      <h2>About me</h2>
-    </div>
-    <p>I work in the Neuromechanics and Rehabilitation Robotics group at the Hertie Institute for Clinical Brain Research and the Center for Integrative Neuroscience. My current research investigates reliable human-intention prediction for assistive devices, including the <strong>iAssistADL</strong> project that helps people with neurodegenerative movement disorders eat and drink on their own. The question running through it is when a prediction is reliable enough to act on.</p>
-    <p>Previously I completed an M.Sc. in Computer Science at the Karlsruhe Institute of Technology, specializing in software engineering and machine learning. During my master's research at the German Aerospace Center (DLR), I developed methods that explain uncertainty in point-cloud registration. I hold a B.Sc. in Computer Science from the University of Tübingen with a minor in Psychology.</p>
-    <div class="academic-actions">
-      <a class="academic-button" href="{{ '/cv/' | relative_url }}">View academic CV</a>
-      <a class="academic-button" href="https://www.linkedin.com/in/jgaus1/">LinkedIn</a>
-      <a class="academic-button" href="https://github.com/jo997">GitHub</a>
-    </div>
-  </section>
 </div>
 
 <script defer src="{{ '/assets/js/academic.js' | relative_url }}"></script>

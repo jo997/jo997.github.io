@@ -1,12 +1,41 @@
 ---
 ---
 
+@inproceedings{gaus2026beyond,
+  abbr            = {NeurIPS AI4GOOD},
+  title           = {Beyond Drift Detection: Deployment Monitoring for Selective Prediction},
+  author          = {Gaus, Johannes A. and Nalivayko, Yaroslava and Wochner, Isabell and Ilg, Winfried and Haeufle, Daniel},
+  booktitle       = {NeurIPS 2026 Workshop on Trustworthy AI for Good},
+  year            = {2026},
+  address         = {Paris, France},
+  html            = {https://jo997.github.io/papers/drift-monitoring/},
+  website         = {https://openreview.net/forum?id=K7XYZERwq7},
+  bibtex_show     = {true},
+  selected        = {true},
+  additional_info = {Reframes post-deployment monitoring as an authorization decision rather than a generic drift alarm. The controller checks risk, coverage, and whether deferrals still target useful interventions, then recommends continuing, retuning, watching, escalating, or revoking autonomy. Across activity-recognition experiments, this guarded approach avoids infeasible authorizations that arise from risk-only retuning. Poster at the NeurIPS 2026 Trustworthy AI for Good workshop in Paris.}
+}
+
+@inproceedings{gaus2026intervention,
+  abbr            = {NeurIPS AI4GOOD},
+  title           = {When Failure Ranking Misses Intervention Value: A Calibration-Time Audit for Selective Prediction},
+  author          = {Gaus, Johannes A. and Charaja, Jhon P. F. and Ilg, Winfried and Haeufle, Daniel},
+  booktitle       = {NeurIPS 2026 Workshop on Trustworthy AI for Good},
+  year            = {2026},
+  address         = {Paris, France},
+  html            = {https://jo997.github.io/papers/failure-ranking/},
+  website         = {https://openreview.net/forum?id=pet8zXl6WD},
+  bibtex_show     = {true},
+  selected        = {true},
+  additional_info = {Shows that ranking prediction failures is not enough when the benefit of intervention differs from case to case. The paper introduces excess allocation value and threshold-corrected calibration value to select uncertainty scores and thresholds by the value of the cases they defer. Experiments span clinical referral, public-policy intervention, and activity recognition. Poster at the NeurIPS 2026 Trustworthy AI for Good workshop in Paris.}
+}
+
 @article{gaus2026confidence,
   abbr            = {ICRA Workshop},
   title           = {Confidence-Gated Robot Autonomy: When Does Uncertainty Actually Help?},
   author          = {Gaus, Johannes A. and Charaja, Jhon P. F. and Haeufle, Daniel},
   year            = {2026},
   arxiv           = {2605.18045},
+  html            = {https://jo997.github.io/papers/confidence-gated-autonomy/},
   bibtex_show     = {true},
   preview         = {confidence-gate.png},
   selected        = {true},
@@ -19,6 +48,7 @@
   author          = {Gaus, Johannes A. and Ilg, Winfried and Haeufle, Daniel},
   year            = {2026},
   arxiv           = {2601.04982},
+  html            = {https://jo997.github.io/papers/when-to-act/},
   bibtex_show     = {true},
   preview         = {when-to-act.png},
   selected        = {true},
@@ -33,6 +63,7 @@
   year            = {2026},
   address         = {Vienna, Austria},
   arxiv           = {2509.18786},
+  html            = {https://jo997.github.io/papers/gpca/},
   bibtex_show     = {true},
   preview         = {gpca.png},
   selected        = {true},
@@ -45,9 +76,10 @@
   author          = {Gaus, Johannes A. and Häufle, Daniel and Baek, Woo-Jeong},
   year            = {2026},
   arxiv           = {2512.14189},
+  html            = {https://jo997.github.io/papers/super/},
   bibtex_show     = {true},
   preview         = {super.png},
-  additional_info = {Reads a risk signal straight out of the optimizer's own sensitivity structure, so it is backend agnostic and needs no extra sensors or retraining. SUPER forecasts trajectory degradation before it happens and triggers recovery for under 0.2 percent additional CPU cost. Currently under review.}
+  additional_info = {Derives a risk signal from the optimizer's sensitivity structure without requiring additional sensors or retraining. SUPER forecasts trajectory degradation and triggers recovery with less than 0.2 percent additional CPU cost. Currently under review.}
 }
 
 @article{gaus2026guard,
@@ -56,7 +88,8 @@
   author          = {Gaus, Johannes A. and Yoon, Junheon and Baek, Woo-Jeong and Choi, Seungwon and Park, Suhan and Park, Jaeheung},
   year            = {2026},
   arxiv           = {2509.23312},
+  html            = {https://jo997.github.io/papers/guard/},
   bibtex_show     = {true},
   preview         = {guard.png},
-  additional_info = {Pairs transparent model-predictive control with uncertainty-aware perception so collision avoidance stays fast while the safety logic remains transparent. The framework keeps the sample efficiency of learning while leaving the safety-critical behavior easy to inspect. Under submission at IROS 2026.}
+  additional_info = {Pairs model-predictive control with uncertainty-aware perception for real-time collision avoidance. Learning estimates perception uncertainty, while an explicit controller keeps the safety-critical behavior open to inspection. Under submission at IROS 2026.}
 }

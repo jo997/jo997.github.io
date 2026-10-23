@@ -15,7 +15,7 @@ description: "Act or Hold, a small game about deciding when a robot should trust
     <div class="signal-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="academic-kicker">Interactive demo</div>
     <h1>Act or Hold.</h1>
-    <p class="academic-lead">A small game built from my research on when a robot should trust an uncertain prediction. You are the safety layer of an assistive robot. Read the noisy sensor estimate and the reported confidence, then decide whether to act or wait. The reported confidence is not always calibrated, so keep an eye on the spread.</p>
+    <p class="academic-lead">This small game asks when a robot should trust a prediction. Read the noisy sensor estimate and its reported confidence, then decide whether the assistive robot should act or wait. Confidence can be misleading, so consider the spread of the estimate as well.</p>
   </section>
 
   <section class="game-wrap">
@@ -76,13 +76,14 @@ description: "Act or Hold, a small game about deciding when a robot should trust
         <div class="legend-card hold"><span class="legend-tag">When to HOLD</span><p>The spread is high, the confidence looks inflated, or two targets compete. Wait for a safer moment.</p></div>
       </div>
 
-      <p class="game-note">Scoring rewards calibrated calls. Assisting on a correct prediction earns points and builds trust, a wrong assist costs a safety incident, holding on a wrong prediction avoids one, and holding on a correct prediction is a missed assist. Difficulty sets the noise, how often confidence lies, the timer, and how many incidents end the run.</p>
+      <p class="game-note">A correct assist earns points and builds trust. A wrong assist causes a safety incident. Waiting can avoid an incident, but waiting on a correct prediction misses a chance to help. Difficulty controls the noise, calibration errors, time limit, and number of allowed incidents.</p>
     </div>
+
   </section>
 
   <section class="academic-section">
     <div class="academic-section-heading"><h2>How this connects to my research</h2></div>
-    <p>A real assistive robot faces exactly this choice. Acting on a wrong prediction can cause a safety incident, while holding too often means the person never gets help. The reported confidence of a model is not always trustworthy, so the decision has to account for how uncertain the underlying estimate really is. Calibrated confidence is what turns a single act or hold threshold into something a clinician can rely on, which is the core of my work on <a href="{{ '/research/' | relative_url }}">reliable human intention prediction</a>.</p>
+    <p>An assistive robot faces the same trade-off. Acting on a wrong prediction may be unsafe, but waiting too often makes the device unhelpful. Because a model's reported confidence can be poorly calibrated, the decision must reflect its actual reliability. My work on <a href="{{ '/research/' | relative_url }}">human intention prediction</a> studies how calibrated confidence can make an act-or-hold threshold meaningful to clinicians and users.</p>
   </section>
 </div>
 

@@ -19,10 +19,10 @@ description: Academic experience, education, teaching, service, and technical ba
     <div class="academic-actions"><a class="academic-button primary" data-mail-user="jag99" data-mail-domain="gmx.net" rel="nofollow" href="#">Email</a><a class="academic-button" href="https://www.linkedin.com/in/jgaus1/">LinkedIn</a><a class="academic-button" href="https://github.com/jo997">GitHub</a><a class="academic-button" href="{{ '/assets/pdf/cv.pdf' | relative_url }}">Download PDF</a></div>
   </section>
 
-  <div class="cv-summary"><div><strong>5</strong><span>research papers</span></div><div><strong>Since 2025</strong><span>Ph.D. researcher</span></div><div><strong>IMPRS-IS</strong><span>doctoral scholar</span></div><div><strong>DE · EN · FR</strong><span>languages</span></div></div>
+  <div class="cv-summary"><div><strong>7</strong><span>research papers</span></div><div><strong>Since 2025</strong><span>Ph.D. researcher</span></div><div><strong>IMPRS-IS</strong><span>doctoral scholar</span></div><div><strong>DE · EN · FR</strong><span>languages</span></div></div>
 
   <section class="cv-section"><h2>Research</h2><div>
-    <div class="cv-entry"><time>2025 to now</time><div><h3>Ph.D. Student · University of Tübingen</h3><p>Neuromechanics and Rehabilitation Robotics group, Hertie Institute for Clinical Brain Research and Center for Integrative Neuroscience. Research on uncertainty-aware machine learning and human intention prediction for reliable assistive robotics, including the iAssistADL device for neurodegenerative movement disorders.</p></div></div>
+    <div class="cv-entry"><time>2025 to present</time><div><h3>Ph.D. Student · University of Tübingen</h3><p>Research on uncertainty-aware machine learning and human-intention prediction in the Neuromechanics and Rehabilitation Robotics group. The work includes iAssistADL, an assistive device for people with neurodegenerative movement disorders.</p></div></div>
     <div class="cv-entry"><time>2024 to 2025</time><div><h3>Researcher · German Aerospace Center (DLR)</h3><p>Master's research on human-interpretable explanations of uncertainty in point-cloud registration for robotic systems.</p></div></div>
     <div class="cv-entry"><time>2025</time><div><h3>Research Assistant · KIT AIFB</h3><p>Software-engineering and machine-learning research with graph neural networks, data preprocessing pipelines, and training infrastructure.</p></div></div>
     <div class="cv-entry"><time>2024</time><div><h3>Data Scientist · Medicalvalues</h3><p>Machine-learning prototypes and predictive analytics for laboratory diagnostics in an agile software team.</p></div></div>
@@ -35,21 +35,21 @@ description: Academic experience, education, teaching, service, and technical ba
   </div></section>
 
   <section class="cv-section"><h2>Education</h2><div>
-    <div class="cv-entry"><time>2026 to now</time><div><h3>IMPRS-IS Scholar</h3><p>International Max Planck Research School for Intelligent Systems, University of Tübingen and Max Planck Institute for Intelligent Systems.</p></div></div>
-    <div class="cv-entry"><time>2025 to now</time><div><h3>Ph.D. in Computer Science · University of Tübingen</h3><p>Neuromechanics and Rehabilitation Robotics group.</p></div></div>
+    <div class="cv-entry"><time>2026 to present</time><div><h3>IMPRS-IS Scholar</h3><p>International Max Planck Research School for Intelligent Systems, University of Tübingen and Max Planck Institute for Intelligent Systems.</p></div></div>
+    <div class="cv-entry"><time>2025 to present</time><div><h3>Ph.D. in Computer Science · University of Tübingen</h3><p>Neuromechanics and Rehabilitation Robotics group.</p></div></div>
     <div class="cv-entry"><time>2022 to 2025</time><div><h3>M.Sc. Computer Science · Karlsruhe Institute of Technology</h3><p>Specialization in software engineering and machine learning. Thesis on explainable uncertainty in point-cloud registration.</p></div></div>
     <div class="cv-entry"><time>2019 to 2022</time><div><h3>B.Sc. Computer Science · University of Tübingen</h3><p>Minor in Psychology. Thesis on probabilistic short-term wind-power forecasting.</p></div></div>
     <div class="cv-entry"><time>2017 to 2018</time><div><h3>Business Informatics · DHBW Baden-Württemberg</h3><p>Cooperative study program combining coursework with industry practice.</p></div></div>
   </div></section>
 
   <section class="cv-section"><h2>Teaching</h2><div>
-    <div class="cv-entry"><time>2025 to now</time><div><h3>Mathematics for Neuroscience · Tutor</h3><p>Tutorials on mathematical foundations and exam preparation for neuroscience students.</p></div></div>
+    <div class="cv-entry"><time>2025 to present</time><div><h3>Mathematics for Neuroscience · Tutor</h3><p>Tutorials on mathematical foundations and exam preparation for neuroscience students.</p></div></div>
     <div class="cv-entry"><time>University of Tübingen</time><div><h3>Software Project · Instructor and Project Lead</h3><p>Designed and led a bachelor-level project developing tremor-detection software for clinical applications, supervising student teams across the full project lifecycle.</p></div></div>
     <div class="cv-entry"><time>University of Tübingen</time><div><h3>Master's Thesis Advisor</h3><p>Advising research projects on methodology, implementation, and scientific writing.</p></div></div>
   </div></section>
 
   <section class="cv-section"><h2>Service</h2><div>
-    <div class="cv-entry"><time>2021 to now</time><div><h3>MINT Ambassador · MINT Netzwerk Deutschland</h3><p>Science and technology outreach, social-media communication, and evaluation of school applications for MINT programs.</p></div></div>
+    <div class="cv-entry"><time>2021 to present</time><div><h3>MINT Ambassador · MINT Netzwerk Deutschland</h3><p>Science and technology outreach, social-media communication, and evaluation of school applications for MINT programs.</p></div></div>
     <div class="cv-entry"><time>2022 to 2025</time><div><h3>Navigation Team Lead · KITcar</h3><p>Led development of autonomous navigation modules in ROS and C++ for academic competitions.</p></div></div>
   </div></section>
 
